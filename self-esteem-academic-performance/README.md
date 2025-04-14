@@ -6,7 +6,7 @@ This project investigates the relationship between students' self-esteem levels 
 ## 🎯 Objective
 To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem Scale, are significantly associated with students’ academic performance (GPA).
 
-## 🧰 Tools Used
+##  Tools Used
 - [x] SPSS  
 - [ ] R  
 - Simulated survey data modeled after a real student project
@@ -18,7 +18,7 @@ To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem 
   - `gpa`: Self-reported Grade Point Average
 - **Sample size:**  simulated student responses
 
-## 🔍 Statistical Methods
+##  Statistical Methods
 - Descriptive statistics (mean, SD)
 - Pearson correlation coefficient
 - Simple linear regression
@@ -29,11 +29,11 @@ To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem 
 
 > Note: These results are based on simulated data and mirror typical patterns observed in similar student studies.
 
-## 🔐 Ethics & Privacy
+##  Ethics & Privacy
 - The dataset is entirely simulated for demonstration purposes.
 - No original student data is shared in this repository.
 
-## 🔄 Reproducibility
+##  Reproducibility
 - Simulated dataset is included in [`self_esteem_gpa.sav`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.sav)
 - Sample visualizations (correlation plots, regression line) are available in [`self-esteem.htm`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.htm)
 
