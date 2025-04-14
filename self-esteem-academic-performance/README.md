@@ -16,7 +16,7 @@ To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem 
 - **Variables:**
   - `self_esteem_score`: Composite score from the Rosenberg Self-Esteem Scale
   - `gpa`: Self-reported Grade Point Average
-- **Sample size:** 100 simulated student responses
+- **Sample size:**  simulated student responses
 
 ## 🔍 Statistical Methods
 - Descriptive statistics (mean, SD)
@@ -34,7 +34,6 @@ To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem 
 - No original student data is shared in this repository.
 
 ## 🔄 Reproducibility
-- SPSS syntax file is included in `/analysis/self_esteem_gpa_analysis.sps`
-- Simulated dataset is included in `/data/self_esteem_gpa.sav` and `.csv` format
-- Sample visualizations (correlation plots, regression line) are available in `/visuals`
+- Simulated dataset is included in [`self_esteem_gpa.sav`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.sav)
+- Sample visualizations (correlation plots, regression line) are available in [`self-esteem.htmv`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.htm)
 
