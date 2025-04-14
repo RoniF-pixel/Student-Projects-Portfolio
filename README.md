@@ -30,10 +30,10 @@ Each project is hosted in its own folder with:
 | Project Title                                  | Tool   | Main Method            |
 |------------------------------------------------|--------|-------------------------|
 | [Self-Esteem and Academic Performance](./self-esteem-academic-performance) | SPSS   | Pearson correlation     |
-| [Social Media Use and Anxiety](./social-media-anxiety) | SPSS   | t-test, regression      |
-| [Sleep Quality and GPA](./sleep-quality-gpa)           | R      | Correlation, ANOVA      |
-| [Study Habits and Exams](./study-habits-exams)         | SPSS   | Regression, clustering  |
-| [Body Image and Self-Confidence](./body-image-confidence) | SPSS | t-tests, correlations   |
+| [Social Media Use and Self-Esteem](./social-media-anxiety) | SPSS   | t-test, regression      |
+| [Sleep Quality and Academic Performance](./sleep-quality-gpa)           | R      | Correlation, ANOVA      |
+| [Effect of Music Genre on Mood and Performance](./study-habits-exams)         | SPSS   | Regression, clustering  |
+| [Anxiety Before and After Exams](./body-image-confidence) | SPSS | t-tests, correlations   |
 | ... _(and 15 more projects)_                    |        |                         |
 
 ---
