@@ -35,5 +35,5 @@ To examine whether self-esteem scores, as measured by the Rosenberg Self-Esteem 
 
 ## 🔄 Reproducibility
 - Simulated dataset is included in [`self_esteem_gpa.sav`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.sav)
-- Sample visualizations (correlation plots, regression line) are available in [`self-esteem.htmv`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.htm)
+- Sample visualizations (correlation plots, regression line) are available in [`self-esteem.htm`](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/self-esteem-academic-performance/self-esteem.htm)
 
