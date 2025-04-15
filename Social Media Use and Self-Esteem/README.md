@@ -53,8 +53,8 @@ Simulated survey data modeled after actual undergraduate research
  - All variables and patterns were designed to reflect plausible psychological research outcomes without compromising individual privacy
 
 ## Reproducibility
- - SPSS dataset available in [socialmedia_selfesteem.sav]()
+ - SPSS dataset available in [Social Media.sav](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Social%20Media%20Use%20and%20Self-Esteem/Social%20Media.sav)
 
- - Statistical output and scatterplot available in [socialmedia_output.pdfdf`]()
+ - Statistical output and scatterplot available in [Social Media.pdf](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Social%20Media%20Use%20and%20Self-Esteem/SocialMedia.pdf)
 
 
