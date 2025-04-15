@@ -59,8 +59,8 @@ Simulated dataset modeled on the structure of a real academic survey study
 - No actual participant responses are included in this portfolio
 
 ##  Reproducibility
-- SPSS dataset available in [sleep_gpa.sav]()
+- SPSS dataset available in [Sleep Quality.sav](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Sleep%20Quality%20and%20Academic%20Performance/Sleep%20Quality.sav)
 
-- Full regression output and visualizations are compiled in [sleep_results.pdf]()
+- Full regression output and visualizations are compiled in [SleepQuality.pdf](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Sleep%20Quality%20and%20Academic%20Performance/SleepQuality.pdf)
 
 
