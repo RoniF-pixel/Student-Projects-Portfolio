@@ -1,10 +1,14 @@
 # Effect of Music Genre on Mood and Performance
 
 ## 📌 Project Overview
-This project examines how different music genres affect employee mood and task performance in a workplace setting. Originally inspired by a student research idea, the recreated version here uses simulated data and reflects a professional environment.
+This project examines the effect of background music on mood and cognitive performance in a workplace setting. The original study design was adapted from student research, and recreated using simulated data from a randomized experiment involving employees at a midsize tech company.
 
 ## 🎯 Objective
-To explore whether music genre (Classical vs. Pop vs. Silence) influences mood and task performance among working adults.
+To investigate:
+
+- Whether music genre (Classical vs. Pop vs. Silence) affects post-task mood, after controlling for pre-task mood.
+
+- Whether music genre influences task performance (logic puzzle accuracy).
 
 ##  Tools Used
 - [x] SPSS  
@@ -13,25 +17,27 @@ To explore whether music genre (Classical vs. Pop vs. Silence) influences mood a
 Simulated experimental data modeled after a workplace scenario
 
 ##  Study Design
-- Design: Randomized between-subjects experiment
+- Source: Simulated
 
-- Participants: Employees from a midsize tech company (n ≈ 90)
+- Design: Randomized between-subjects (3 groups)
 
-- Conditions:
+- Variables:
 
-  - Group 1: Classical music
+  - group: Type of music (Classical, Pop, Silence)
 
-  - Group 2: Pop music
+  - pre_mood: Mood before task (scale 0–10)
 
-  - Group 3: Silence (control)
+  - post_mood: Mood after task (scale 0–10)
 
-- Measures:
+  - task_score: Number of correct answers on a logic puzzle task
 
-  - pre_mood: Mood rating before the task (1–10 scale)
+- Sample size: 20
 
-  - post_mood: Mood rating after listening to music
+  - Classical: 7
 
-  - task_score: Accuracy on a timed logic puzzle
+  - Pop: 6
+
+  - Silence: 7
 
 ## 📊 Statistical Methods
 - Descriptive statistics
@@ -43,16 +49,19 @@ Simulated experimental data modeled after a workplace scenario
 - Post-hoc tests for group comparisons (if significant)
 
 ## 📈 Key Results (Simulated Data)
-- Mood:
+- ANCOVA:
 
-   - Participants in the Classical music group reported significantly improved mood compared to Silence and Pop groups (p < .05)
+  - Significant main effect of music genre on post-mood after controlling for pre-mood.
 
-- Performance:
+  - Classical music group had significantly higher mood scores than Pop and Silence groups.
 
-   - No significant differences in task performance across groups
+- ANOVA on Task Score:
 
-- These findings align with research suggesting that classical music may improve emotional states but not necessarily cognitive performance in short tasks.
+  - No significant differences in task performance across music conditions.
 
+  - Post-hoc: No pairwise comparisons were statistically significant.
+
+Note: These results are based on a small, simulated sample and should be interpreted accordingly.
 ##  Ethics & Privacy
 - The dataset is entirely simulated to model a realistic workplace study
 
