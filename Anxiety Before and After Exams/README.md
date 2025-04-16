@@ -16,7 +16,7 @@ To evaluate how anxiety levels change over time — specifically:
 - [x] SPSS  
 - [ ] R 
 
-Simulated time-series data based on known anxiety patterns in test-taking contexts
+Simulated time-series data based on known anxiety patterns in test-taking contexts.
 
 ##  Study Design
 - Design: Within-subjects (repeated measures)
@@ -43,13 +43,17 @@ Simulated time-series data based on known anxiety patterns in test-taking contex
 - Visual: Line plot with error bars showing anxiety trajectory across time
 
 ## 📈 Key Results (Simulated Data)
-- Anxiety peaked 1 day before the exam and dropped significantly after (p < .001)
+-Main effect of time was significant: anxiety varied across the three phases.
 
-- Anxiety 1 week before was significantly lower than 1 day before (p < .01)
+- Post-hoc tests (Bonferroni-adjusted) showed:
 
-- Post-exam anxiety returned to near-baseline levels
+  - Anxiety 1 day before the exam was significantly higher than both:
 
-- These simulated results reflect well-documented patterns of anticipatory stress and relief post-assessment.
+    - 1 week before (Mean diff = 22.16, p < .001)
+
+    - After the exam (Mean diff = 19.38, p < .001)
+
+  - Anxiety 1 week before was also significantly lower than after the exam (Mean diff = 2.78, p < .001)
 
 ##  Ethics & Privacy
 - The dataset is fully simulated and anonymized
@@ -57,8 +61,7 @@ Simulated time-series data based on known anxiety patterns in test-taking contex
 - No actual participant data is used or shared
 
 ##  Reproducibility
-- SPSS dataset available in [anxiety_exam_timing.sav]()
+- SPSS dataset available in [Anxiety.sav](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Anxiety%20Before%20and%20After%20Exams/Anxiety.sav)
 
-- Output plots and statistical tables in [anxiety_exam_results.pdf]()
+- Output plots and statistical tables in [Anxiety.pdf](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Anxiety%20Before%20and%20After%20Exams/Anxiety.pdf)
 
-- Full SPSS syntax in [SPSS_within_subjects_syntax.txt]()
