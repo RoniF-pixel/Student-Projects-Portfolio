@@ -68,10 +68,9 @@ Note: These results are based on a small, simulated sample and should be interpr
 - No real employee data is shared
 
 ##  Reproducibility
-- SPSS dataset available in [music_mood_performance.sav]()
+- SPSS dataset available in [Effect of Music.sav](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Effect%20of%20Music%20Genre%20on%20Mood%20and%20Performance/Effect%20of%20Music.sav)
 
-- Statistical output and visualizations in [music_effect_results.pdf]()
+- Statistical output and visualizations in [EffectOfMusic.pdf](https://github.com/RoniF-pixel/Student-Projects-Portfolio/blob/main/Effect%20of%20Music%20Genre%20on%20Mood%20and%20Performance/EffectOfMusic.pdf)
 
-- ANCOVA & ANOVA syntax included in [SPSS_syntax.txt]()
 
 
