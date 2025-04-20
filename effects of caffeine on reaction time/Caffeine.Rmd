@@ -1,0 +1,119 @@
+---
+title: "Effects of Caffeine on Reaction Time"
+author: "Ronak Fathi"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+This project simulates a study I mentored students on, investigating the effects of caffeine on reaction time. The data is simulated to reflect a real experimental design, focusing on how caffeine, gender, and heart rate interact to influence reaction time performance.
+
+# Introduction
+Caffeine is widely used to improve alertness and performance. This study investigates its effects on cognitive function, specifically reaction time, using a Go/No-Go task. It also explores whether gender moderates these effects and examines physiological changes in heart rate due to caffeine intake.
+
+# Methods
+## Design
+- Design: Between-subjects laboratory experiment
+
+- Groups:
+
+  - Caffeinated Coffee
+
+  - Decaffeinated Coffee (placebo)
+
+  - No Drink
+
+- Measurements:
+
+  - Reaction Time (ms) using an online Go/No-Go task
+
+  - Heart rate before and after intervention
+
+- Additional Factors:
+
+  - Gender (Male/Female)
+ 
+```{r load dataset} 
+# Load the data
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/effects of caffeine on reaction time")
+data <- read.csv("caffeine_reaction_time_data.csv")
+
+# Convert to factors
+data$Group <- factor(data$Group, levels = c("Caffeine", "Decaf", "NoDrink"))
+data$Gender <- factor(data$Gender)
+
+# View head of data
+head(data)
+```
+
+# Statistical Analysis
+
+## Two-way ANOVA: Reaction Time ~ Group * Gender
+
+```{r}
+anova_result <- aov(RT ~ Group * Gender, data = data)
+summary(anova_result)
+```
+
+### Assumption Checks
+
+```{r}
+# Normality of residuals
+shapiro.test(residuals(anova_result))
+
+# Homogeneity of variances
+library(car)
+leveneTest(RT ~ Group * Gender, data = data)
+```
+
+## ANCOVA: Adjusted for Baseline Heart Rate
+
+```{r}
+ancova_result <- aov(RT ~ Group * Gender + HR_Before, data = data)
+summary(ancova_result)
+
+```
+
+## Heart Rate Change Analysis
+
+```{r}
+data$HR_Change <- data$HR_After - data$HR_Before
+
+# One-way ANOVA for HR change
+anova_hr <- aov(HR_Change ~ Group, data = data)
+summary(anova_hr)
+
+# Post-hoc comparison
+TukeyHSD(anova_hr)
+
+```
+
+
+# Results
+- The Caffeine group showed significantly faster reaction times compared to the Decaf and NoDrink groups (p < .01).
+
+- Gender had no significant main effect or interaction with group.
+
+- A significant increase in heart rate was observed only in the Caffeine group.
+
+- The ANCOVA confirmed that the reaction time difference remains significant after adjusting for baseline heart rate.
+
+
+# Discussion
+These results support the hypothesis that caffeine enhances cognitive speed, as shown by lower reaction times. Heart rate increases in the caffeine group support its physiological effect. The lack of gender differences aligns with some prior literature, but future studies with larger samples may explore interaction effects further.
+
+# Conclusion
+This simulated study demonstrates a clear impact of caffeine on reaction time performance. It illustrates key concepts in experimental design, analysis of variance, and ANCOVA—useful tools in both psychological and biomedical statistics.
+
+# References
+- Lieberman, H. R., Wurtman, R. J., Emde, G. G., Roberts, C., & Coviella, I. L. (1987). The effects of low doses of caffeine on human performance and mood. Psychopharmacology, 92(3), 308–312.
+
+- Smith, A. (2002). Effects of caffeine on human behavior. Food and Chemical Toxicology, 40(9), 1243–1255.
+
+- Field, A. (2013). Discovering Statistics Using R. Sage publications.
