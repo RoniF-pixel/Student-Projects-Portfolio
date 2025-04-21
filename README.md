@@ -34,6 +34,11 @@ Each project is hosted in its own folder with:
 | [Sleep Quality and Academic Performance](./sleep-quality-gpa)           | SPSS     | Hierarchical multiple regression, Multicollinearity diagnostics      |
 | [Effect of Music Genre on Mood and Performance](./study-habits-exams)         | SPSS   | ANCOVA , One-way ANOVA   |
 | [Anxiety Before and After Exams](./body-image-confidence) | SPSS | Repeated Measures ANOVA, Post-hoc   |
+| [Effects of caffeine on reaction time](https://github.com/RoniF-pixel/Student-Projects-Portfolio/tree/main/effects%20of%20caffeine%20on%20reaction%20time) | RStudio & R Markdown | Two-way ANOVA, ANCOVA, One-way ANOVA + Tukey test  |
+| [Gratitude_wellbeing](https://github.com/RoniF-pixel/Student-Projects-Portfolio/tree/main/gratitude_wellbeing) | RStudio & R Markdown | Mixed-effects model, Independent t-test, Multiple imputation   |
+| [Perfectionism and Procrastination](https://github.com/RoniF-pixel/Student-Projects-Portfolio/tree/main/Perfectionism%20and%20Procrastination) | RStudio & R Markdown | Structural Equation Modeling (SEM), Moderation analysis   |
+| [Mindfulness and Exam Stress](https://github.com/RoniF-pixel/Student-Projects-Portfolio/tree/main/Mindfulness%20and%20Exam%20Stress) | RStudio & R Markdown | Wilcoxon signed-rank test, Spearman correlation   |
+| [Color and Memory Recall](https://github.com/RoniF-pixel/Student-Projects-Portfolio/tree/main/Color%20and%20Memory%20Recall) | RStudio & R Markdown | Kruskal-Wallis test, Dunn’s post-hoc test   |
 | ... _(and 15 more projects)_                    |        |                         |
 
 ---
