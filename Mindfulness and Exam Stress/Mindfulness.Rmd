@@ -1,30 +1,97 @@
 ---
-title: "Untitled"
-author: "Ronak Fathi"
-date: "2025-04-21"
-output: pdf_document
+title: "Mindfulness and Exam Stress: A Pre-Post Intervention Study"
+author: "Ronak Fathi (Mentor)"
+date: "`r Sys.Date()`"
+output: html_document
 ---
 
+# Project Overview
+This R Markdown file presents the statistical analysis for a simulated within-subjects intervention study examining the effects of mindfulness practice on stress levels during exam week. The stress outcome is assessed using the DASS-21 Stress Subscale, with participants also logging their total minutes of mindfulness practice across a week.
+
+This simulated study is based on prior research supervised by **Ronak Fathi**, conducted by final-year undergraduate students during their final exams.
+
+# Introduction
+Mindfulness has been increasingly studied for its impact on stress reduction, especially among students facing academic pressures. This project evaluates whether daily mindfulness practice reduces stress and whether the amount of practice predicts greater reductions.
+
+# Method
+## Design
+- **Type**: Within-subjects, pre-post design
+- **Participants**: 60 simulated final-year undergraduates
+- **Measures**:
+  - **DASS-21 Stress Subscale** (range 0–42)
+  - **Mindfulness Practice Log** (total minutes over 7 days)
+
+# Load Libraries
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+library(knitr)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+# Load Dataset
+```{r load-data}
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/Mindfulness and Exam Stress")
+data <- read.csv("mindfulness_exam_stress_data.csv")
+kable(head(data))
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+# Summary Statistics
+```{r summary}
+data %>%
+  summarise(
+    Pre_Mean = mean(Stress_Pre),
+    Post_Mean = mean(Stress_Post),
+    Mean_Reduction = mean(Stress_Reduction),
+    SD_Reduction = sd(Stress_Reduction)
+  )
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# Distribution Check
+```{r distribution}
+ggplot(data, aes(x = Stress_Reduction)) +
+  geom_histogram(binwidth = 1, fill = "lightblue", color = "black") +
+  theme_minimal() +
+  labs(title = "Histogram of Stress Reduction", x = "Stress Reduction", y = "Frequency")
+```
+
+# Wilcoxon Signed-Rank Test
+```{r wilcoxon}
+wilcox_result <- wilcox.test(data$Stress_Pre, data$Stress_Post, paired = TRUE)
+wilcox_result
+
+# Effect size (r)
+z <- qnorm(wilcox_result$p.value / 2)
+r_effect_size <- abs(z / sqrt(nrow(data)))
+paste("Effect size (r):", round(r_effect_size, 3))
+```
+
+# Correlation: Practice Minutes vs. Stress Reduction
+```{r correlation}
+data %>%
+  cor_test(Practice_Minutes, Stress_Reduction, method = "spearman")
+```
+
+# Visualization: Practice Minutes vs. Stress Reduction
+```{r scatterplot}
+ggplot(data, aes(x = Practice_Minutes, y = Stress_Reduction)) +
+  geom_point(color = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, color = "darkred") +
+  theme_minimal() +
+  labs(title = "Mindfulness Practice vs. Stress Reduction",
+       x = "Total Practice Minutes",
+       y = "Stress Reduction (Pre - Post)")
+```
+
+# Results Summary
+- **Stress levels** were significantly lower post-intervention (p < .001), supporting the effectiveness of mindfulness during finals.
+- **Correlation** between practice time and reduction in stress was **ρ = –.35, p = .04**, indicating a moderate negative relationship.
+- **Effect size** (r) was calculated from the Wilcoxon test for reporting.
+
+# Conclusion
+These findings suggest that even short-term mindfulness practice can significantly reduce exam-related stress. More time spent practicing mindfulness was associated with greater reductions in stress. This supports continued integration of mindfulness in student wellness initiatives.
+
+---
+
+*This simulated project was mentored and guided by **Ronak Fathi**, and is based on prior student research on mindfulness-based stress reduction.*
+
