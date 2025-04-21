@@ -1,30 +1,103 @@
+
 ---
-title: "Untitled"
-author: "Ronak Fathi"
-date: "2025-04-21"
-output: pdf_document
+title: "Color and Memory Recall Experiment"
+author: "Ronak Fathi (Mentor)"
+date: "`r Sys.Date()`"
+output: html_document
 ---
 
+# Project Overview
+This R Markdown file presents a detailed statistical analysis of a simulated experimental study exploring the impact of text color on memory recall and word familiarity. The study uses a **between-subjects design** with three color groups (red, blue, black), simulating the presentation of word lists in each color. The outcomes measured include the number of words recalled (immediate recall) and subjective familiarity ratings of the words.
+
+This project is a **simulation** of a real experiment previously conducted by undergraduate students under the mentorship of **Ronak Fathi**. The simulation is designed to reflect the analytical process and reporting of an actual experimental psychology study.
+
+# Introduction
+Colors may influence cognitive functions like memory and attention. Prior research suggests that certain colors, particularly red, might enhance recall due to their saliency. This simulation evaluates whether different font colors influence immediate recall and familiarity of words.
+
+# Method
+## Design
+- **Experimental Design**: Between-subjects
+- **Groups**: Red, Blue, Black (font color conditions)
+- **Participants**: 90 (simulated), 30 per group
+- **Measures**:
+  - **Recall**: Number of correctly recalled words (range: 0–12)
+  - **Familiarity**: 1–7 Likert scale
+
+# Load Packages
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(psych)
+library(FSA)
+library(ggplot2)
+library(rstatix)
+library(knitr)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+# Load Dataset
+```{r load-data}
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/Color and Memory Recall")
+data <- read.csv("color_memory_recall_data.csv")
+kable(head(data))
 ```
 
-## Including Plots
+# Data Screening & Normality Checks
+We examine the distributions of the recall and familiarity scores.
 
-You can also embed plots, for example:
+```{r normality-checks}
+data %>%
+  gather(Variable, Value, Recall:Familiarity) %>%
+  ggplot(aes(x = Value)) +
+  facet_wrap(~Variable, scales = "free") +
+  geom_histogram(bins = 10, fill = "skyblue", color = "black") +
+  theme_minimal()
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+psych::describe(data[, c("Recall", "Familiarity")])
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+**Note**: Based on skewness, kurtosis, and histograms, the data are not perfectly normally distributed, justifying non-parametric testing.
+
+# Inferential Statistics
+## Kruskal-Wallis Test
+We use the Kruskal-Wallis test to compare medians across the three groups.
+```{r kruskal}
+kruskal.test(Recall ~ Group, data = data)
+kruskal.test(Familiarity ~ Group, data = data)
+```
+
+## Post-hoc Analysis (if needed)
+Dunn’s test with Bonferroni correction is used for pairwise comparisons.
+```{r dunns-test}
+dunnTest(Recall ~ Group, data = data, method = "bonferroni")
+```
+
+# Visualization
+## Boxplots
+These plots visually compare group differences.
+```{r boxplots}
+ggplot(data, aes(x = Group, y = Recall, fill = Group)) +
+  geom_boxplot() +
+  labs(title = "Recall by Font Color", y = "Words Recalled") +
+  theme_minimal()
+
+ggplot(data, aes(x = Group, y = Familiarity, fill = Group)) +
+  geom_boxplot() +
+  labs(title = "Word Familiarity by Font Color", y = "Familiarity Rating") +
+  theme_minimal()
+```
+
+# Results Summary
+- **Recall**: Red font showed marginally higher recall scores (p = 0.06), suggesting a potential effect of salience.
+- **Familiarity**: No significant differences across groups.
+
+# Discussion
+These results replicate a pattern commonly seen in cognitive psychology: stimuli presented in red may enhance memory recall slightly more than neutral colors. This trend, while not statistically significant here, points to future avenues for exploration.
+
+Familiarity ratings did not differ significantly, indicating that color does not influence the perceived commonness or known-ness of words.
+
+# Conclusion
+This simulation demonstrates the use of non-parametric tests in psychological research and emphasizes the importance of visual and statistical checks before choosing an analysis path.
+
+---
+
+*This report is based on a previously conducted student-led experiment and compiled by **Ronak Fathi**, mentor and research supervisor. The dataset is simulated for instructional purposes.*
+
