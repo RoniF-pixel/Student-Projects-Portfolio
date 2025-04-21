@@ -12,3 +12,87 @@ library(lme4)
 library(mice)
 library(broom)
 ```
+
+# Introduction
+Gratitude journaling has been associated with improved emotional well-being and reduced stress. This study simulates a 2-week longitudinal intervention comparing gratitude journaling and neutral journaling on subjective happiness and stress levels.
+
+# Data Overview
+```{r laoding data{}
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/gratitude_wellbeing")
+data <- read.csv("gratitude_wellbeing_data.csv")
+head(data)
+summary(data)
+```
+
+- Groups: Gratitude vs. Neutral
+
+- Measures:
+
+   - Happiness: Pre and Post
+
+   - Stress: Pre and Post
+
+   - Compliance over 14 days
+   
+# Mixed-Effects Model: Happiness Over Time
+We fit a mixed-effects model with random intercepts per subject.
+
+```{r}
+data_long <- data %>%
+  pivot_longer(cols = c(Happiness_Pre, Happiness_Post),
+               names_to = "Time", values_to = "Happiness") %>%
+  mutate(Time = factor(Time, levels = c("Happiness_Pre", "Happiness_Post")),
+         SubjectID = factor(SubjectID))
+
+model <- lmer(Happiness ~ Time * Group + (1 | SubjectID), data = data_long)
+summary(model)
+```
+
+# Result
+A significant Time × Group interaction was found (p = 0.008), indicating steeper gains in happiness for the gratitude group.
+
+# Independent t-Test: Stress Reduction
+```{r}
+data <- data %>%
+  mutate(Stress_Reduction = Stress_Pre - Stress_Post)
+
+t_test <- t.test(Stress_Reduction ~ Group, data = data)
+t_test
+```
+
+# Result
+Stress levels decreased more in the Gratitude group than the Neutral group (p = 0.045).
+
+# Handling Missing Data (Example)
+Let's assume some missing happiness scores and use multiple imputation.
+
+```{r}
+set.seed(123)
+data_miss <- data
+data_miss$Happiness_Post[sample(1:nrow(data), 5)] <- NA
+
+imp <- mice(data_miss, m = 5, method = "pmm", seed = 500)
+summary(imp)
+
+# Pool model
+completed_data <- complete(imp, 1)
+head(completed_data)
+```
+
+#Assumption Checks
+
+```{r}
+par(mfrow=c(1,2))
+plot(model)
+qqnorm(resid(model)); qqline(resid(model))
+```
+
+# References
+- Emmons, R. A., & McCullough, M. E. (2003). Counting blessings versus burdens.
+
+- Lyubomirsky, S., Sheldon, K. M., & Schkade, D. (2005). Pursuing happiness.
+
+- Field, A. (2013). Discovering Statistics Using R.
+
+# Conclusion
+The gratitude journaling group experienced significantly greater increases in happiness and reduced stress levels over the 2-week period. These results support the use of gratitude interventions to enhance psychological well-being.
