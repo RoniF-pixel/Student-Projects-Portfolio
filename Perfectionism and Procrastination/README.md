@@ -1,4 +1,4 @@
-# README: Perfectionism and Procrastination Project
+# Perfectionism and Procrastination Project
 
 ## Project Overview
 This project investigates the relationship between perfectionism and procrastination in academic settings. It is a simulated version of a real research project originally conducted under the mentorship of **Ronak Fathi** with a team of undergraduate psychology students. The purpose of this simulation is to demonstrate how to apply structural equation modeling (SEM) and moderation analysis in the context of psychological traits and academic behavior.
