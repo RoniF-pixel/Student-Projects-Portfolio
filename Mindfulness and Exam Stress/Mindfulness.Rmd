@@ -2,7 +2,10 @@
 title: "Mindfulness and Exam Stress: A Pre-Post Intervention Study"
 author: "Ronak Fathi (Mentor)"
 date: "`r Sys.Date()`"
-output: html_document
+output: 
+  pdf_document:
+    latex_engine: xelatex
+
 ---
 
 # Project Overview
