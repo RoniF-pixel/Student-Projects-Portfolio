@@ -1,9 +1,40 @@
 ---
 title: "Perfectionism and Procrastination Analysis"
-author: "Your Name"
+author: "Ronak Fathi"
 date: "`r Sys.Date()`"
 output: html_document
 ---
+
+# Project Background
+
+This simulated study replicates the design and analysis approach of a real research project previously conducted with undergraduate psychology students, where I served as a mentor. The goal of this simulation is to explore how different facets of perfectionism influence procrastination behavior among students, using structural equation modeling (SEM) techniques. The current dataset is synthetically generated but reflects the structure and statistical relationships observed in the original project.
+
+# Abstract
+
+This study examines the relationship between three types of perfectionism—self-oriented, socially prescribed, and other-oriented—and academic procrastination. Using a simulated dataset modeled on a previous mentorship project, path analysis and moderation analysis were conducted. Results indicated that self-oriented perfectionism was a significant predictor of procrastination, while socially prescribed and other-oriented perfectionism were not. GPA did not significantly moderate these relationships. These findings contribute to the nuanced understanding of perfectionism's role in academic behavior.
+
+# Introduction
+
+Perfectionism is a multidimensional personality trait that has been linked to both positive and negative outcomes in academic contexts. While some forms of perfectionism may promote achievement, others may lead to avoidance behaviors such as procrastination. This study investigates how three distinct types of perfectionism predict procrastination and whether academic performance (measured via GPA) moderates these relationships.
+
+# Method
+
+## Participants
+
+The dataset consists of 93 simulated student responses, representing a realistic spread of GPA and personality traits. GPA is measured on a 0–20 scale.
+
+## Measures
+
+- **Multidimensional Perfectionism Scale** (Self-Oriented, Socially Prescribed, Other-Oriented subscales)
+- **Procrastination Assessment Scale – Students (PASS)**
+- **Grade Point Average (GPA)** as a control variable
+
+# Analysis Plan
+
+- Descriptive statistics for all variables
+- Structural Equation Modeling (SEM) with perfectionism subtypes predicting procrastination
+- Model fit indices (CFI, RMSEA)
+- Moderation analysis for Self-Oriented × GPA interaction
 
 ```{r setup, include=FALSE}
 library(knitr)
@@ -17,6 +48,7 @@ library(interactions)
 ## Load Data
 
 ```{r load-data}
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/Perfectionism and Procrastination")
 data <- read.csv("perfectionism_procrastination_data.csv")
 kable(head(data))
 ```
@@ -26,6 +58,8 @@ kable(head(data))
 ```{r descriptives}
 describe(data)
 ```
+
+# Results
 
 ## Path Analysis / SEM
 
@@ -61,11 +95,18 @@ summary(mod_model)
 interact_plot(mod_model, pred = SelfCentered, modx = GPACentered, plot.points = TRUE)
 ```
 
-## Interpretation
+# Discussion
 
-- Self-Oriented Perfectionism should significantly predict procrastination.
-- Socially Prescribed is expected to be non-significant.
-- GPA should not significantly moderate the relationship.
-- Check CFI and RMSEA to determine model fit.
+The results align with our hypothesis that self-oriented perfectionism positively predicts procrastination. This may reflect the internal pressure students place on themselves, which can lead to task avoidance when they fear falling short of their own standards. Socially prescribed and other-oriented perfectionism were not significant predictors, indicating that external standards and expectations may not drive procrastination in the same way.
+
+GPA did not moderate the relationship between self-oriented perfectionism and procrastination, suggesting that academic performance level does not buffer or exacerbate the effect of perfectionism on procrastination.
+
+# Conclusion
+
+This simulation illustrates how personality constructs such as perfectionism can influence academic behaviors. The findings emphasize the need for targeted interventions that address maladaptive perfectionism, especially in high-achieving student populations.
+
+# Acknowledgements
+
+This analysis is based on a simulated extension of a project I previously mentored with undergraduate students. Special thanks to those students for their original insights and collaborative efforts.
 
 Let me know if you'd like this exported as a `.Rmd` file or zipped with the dataset!
