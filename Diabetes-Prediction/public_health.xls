@@ -1,0 +1,101 @@
+Age	BMI	Smoking_Status	Blood_Pressure	Diabetes
+58	30.1	Former smoker	Normal	1
+71	37.6	Former smoker	Normal	1
+48	28.1	Former smoker	Elevated	0
+34	33.6	Current smoker	Normal	0
+62	28.8	Former smoker	High	0
+27	27.3	Former smoker	High	0
+40	21	Former smoker	Normal	0
+58	29.9	Former smoker	High	0
+77	23.6	Non-smoker	Normal	1
+38	24.9	Non-smoker	Normal	0
+42	26.8	Former smoker	High	0
+30	25.9	Current smoker	Normal	1
+30	20.7	Non-smoker	High	1
+43	23.8	Former smoker	Elevated	0
+72	30.7	Non-smoker	Normal	0
+55	29.7	Non-smoker	Elevated	0
+59	29.8	Current smoker	High	0
+43	27.7	Former smoker	Elevated	0
+22	29.6	Former smoker	Elevated	1
+41	28	Current smoker	High	0
+72	26.3	Current smoker	Elevated	0
+21	31.7	Former smoker	Elevated	0
+43	26	Former smoker	High	0
+63	23.9	Current smoker	Elevated	1
+49	31.8	Non-smoker	High	1
+57	31.9	Non-smoker	Elevated	0
+21	20.7	Current smoker	High	0
+79	29.6	Non-smoker	High	0
+40	18.8	Current smoker	Elevated	0
+52	31.3	Non-smoker	Elevated	0
+31	23.3	Non-smoker	Elevated	0
+77	30.1	Former smoker	Normal	0
+41	24.5	Former smoker	Normal	0
+63	28.3	Non-smoker	Normal	0
+44	21.5	Non-smoker	High	0
+68	25.9	Former smoker	Elevated	0
+46	26.8	Former smoker	High	0
+78	30.8	Former smoker	Normal	0
+61	34.2	Current smoker	Elevated	1
+47	29.3	Non-smoker	High	0
+79	28.2	Former smoker	Elevated	0
+35	22.9	Non-smoker	High	0
+34	21.3	Current smoker	Elevated	0
+66	27.8	Current smoker	Normal	0
+70	27.5	Former smoker	Normal	0
+63	29.4	Current smoker	Elevated	1
+74	29.8	Non-smoker	High	0
+71	28.4	Former smoker	Normal	0
+76	21.1	Non-smoker	Normal	0
+22	30.6	Non-smoker	Normal	0
+56	26.6	Current smoker	Elevated	0
+70	23.2	Current smoker	Elevated	1
+26	25.3	Current smoker	High	0
+40	21.4	Current smoker	High	1
+28	25.6	Current smoker	High	1
+58	30	Former smoker	Elevated	0
+37	25.7	Non-smoker	Elevated	0
+23	23.6	Non-smoker	High	0
+44	26	Non-smoker	High	0
+79	28.8	Non-smoker	Elevated	0
+33	21.6	Current smoker	High	0
+69	22.9	Non-smoker	Normal	0
+77	27.5	Former smoker	Elevated	0
+28	22	Former smoker	High	1
+45	34.8	Non-smoker	Elevated	0
+72	26.4	Non-smoker	Normal	1
+21	23.4	Former smoker	Elevated	0
+39	23.7	Former smoker	Elevated	0
+47	25.1	Current smoker	Elevated	0
+66	24.7	Former smoker	Elevated	0
+79	18.6	Current smoker	Normal	1
+26	32.1	Current smoker	Elevated	1
+63	26.9	Current smoker	Elevated	1
+27	26.9	Current smoker	High	0
+66	30.3	Current smoker	Elevated	0
+54	22.8	Non-smoker	High	1
+33	24	Former smoker	Normal	1
+36	28.8	Current smoker	Normal	1
+55	26.7	Former smoker	Normal	0
+69	28.4	Former smoker	Normal	0
+59	26.7	Current smoker	High	1
+23	26	Non-smoker	Elevated	0
+21	32.7	Current smoker	Normal	1
+25	31.3	Non-smoker	Elevated	1
+73	17	Former smoker	High	0
+61	32.9	Non-smoker	High	1
+23	35.6	Non-smoker	High	1
+73	31.9	Non-smoker	Normal	0
+48	26.1	Former smoker	Elevated	1
+37	24.2	Former smoker	Elevated	0
+45	29.9	Non-smoker	Elevated	1
+63	24.5	Non-smoker	High	0
+53	28.4	Current smoker	Normal	1
+29	26.9	Non-smoker	High	0
+55	31.9	Current smoker	High	0
+33	25.4	Non-smoker	Elevated	1
+50	25.2	Current smoker	High	0
+67	28.5	Former smoker	Elevated	0
+34	34.7	Non-smoker	Normal	1
+27	27.3	Non-smoker	Elevated	1

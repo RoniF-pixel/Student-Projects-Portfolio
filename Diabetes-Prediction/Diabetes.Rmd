@@ -1,0 +1,158 @@
+---
+title: "Public Health Risk Factors and Diabetes Status"
+author: "Ronak Fathi (Mentor)"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: 
+       latex_engine: xelatex
+  html_document: default
+---
+
+# Project Overview
+This R Markdown file presents a statistical analysis of a simulated dataset exploring the association between lifestyle and physiological risk factors and diabetes status in a sample of 100 patients. The study investigates whether variables such as **age**, **BMI**, **smoking status**, and **blood pressure** are associated with **diabetes status**.
+
+This project is a **simulation** designed for instructional purposes, reflecting realistic patterns observed in public health data.
+
+# Introduction
+Diabetes is a chronic condition influenced by lifestyle and physiological factors. Understanding how factors such as BMI, blood pressure, smoking, and age relate to diabetes risk is important for prevention and early intervention efforts. This report examines these associations using simulated data.
+
+# Method
+## Design
+- **Type**: Observational, cross-sectional
+- **Sample size**: 100 patients
+- **Variables**:
+  - **age**: Patient age in years
+  - **BMI**: Body Mass Index
+  - **smoking_status**: Never, Former, Current
+  - **blood_pressure**: Normal, Elevated, High
+  - **diabetes_status**: 0 = No diabetes, 1 = Has diabetes
+
+# Load Packages
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(rstatix)
+library(psych)
+```
+
+# Load Dataset
+```{r}
+setwd("C:/Users/0&1/OneDrive/Documents/Student-Projects-Portfolio/Diabetes-Prediction")
+data <- read.csv("health.csv")
+kable(head(data))
+```
+
+# Descriptive Statistics
+```{r}
+summary(data)
+psych::describe(data %>% select(age, BMI))
+table(data$smoking_status)
+table(data$blood_pressure)
+table(data$diabetes_status)
+```
+
+# Visualization
+
+## Distributions
+```{r}
+data %>%
+  pivot_longer(cols = c(age, BMI), names_to = "Variable", values_to = "Value") %>%
+  ggplot(aes(x = Value)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") +
+  facet_wrap(~Variable, scales = "free") +
+  theme_minimal()
+```
+
+## Bar plots for categorical variables
+```{r}
+ggplot(data, aes(x = smoking_status, fill = factor(diabetes_status))) +
+  geom_bar(position = "fill") +
+  labs(title = "Diabetes Status by Smoking Status", y = "Proportion", fill = "Diabetes") +
+  theme_minimal()
+
+ggplot(data, aes(x = blood_pressure, fill = factor(diabetes_status))) +
+  geom_bar(position = "fill") +
+  labs(title = "Diabetes Status by Blood Pressure", y = "Proportion", fill = "Diabetes") +
+  theme_minimal()
+```
+
+# Inferential Statistics
+
+## Comparing Age and BMI by Diabetes Status
+
+```{r}
+t.test(age ~ diabetes_status, data = data)
+t.test(BMI ~ diabetes_status, data = data)
+```
+
+## Association with Categorical Variables
+
+```{r}
+chisq.test(table(data$smoking_status, data$diabetes_status))
+chisq.test(table(data$blood_pressure, data$diabetes_status))
+```
+
+# Logistic Regression
+
+We use logistic regression to model the probability of diabetes status using all predictors.
+
+```{r}
+model <- glm(diabetes_status ~ age + BMI + smoking_status + blood_pressure, data = data, family = "binomial")
+summary(model)
+```
+
+# Summary of Results
+
+- Sample: 100 patients, with 32% having diabetes.
+
+- Descriptive statistics:
+
+    - Age: Mean = 49.6 years, SD = 18.0
+
+    - BMI: Mean = 27.1, SD = 4.0
+
+    - Smoking status: 30% current smokers, 34% former smokers, 36% non-smokers
+
+    - Blood pressure: 33% normal, 39% elevated, 28% high
+
+- Inferential statistics:
+
+    - T-tests:
+
+       - No significant difference in age between diabetic and non-diabetic groups (p = 0.22)
+
+       - No significant difference in BMI between groups (p = 0.29)
+
+    - Chi-square tests:
+
+       - Smoking status was significantly associated with diabetes status (χ² = 6.21, p = 0.045)
+
+       - Blood pressure was not significantly associated with diabetes status (χ² = 1.05, p = 0.59)
+
+- Logistic Regression:
+
+    - Only the variable "Former smoker" showed a statistically significant association with diabetes (β = -1.51, p = 0.0129), indicating lower odds of diabetes compared to current smokers.
+
+    - Age, BMI, and blood pressure levels were not significant predictors in the model.
+
+    - Model AIC = 127.88; residual deviance = 113.88 (on 93 df)
+
+
+# Discussion
+This simulation study explored associations between public health risk factors and diabetes status. Although both age and BMI are traditionally recognized risk factors for diabetes, this simulated dataset did not reveal statistically significant differences in these variables between diabetic and non-diabetic individuals. This may reflect limitations in sample size, data variability, or the simulated nature of the dataset.
+
+Interestingly, smoking status showed a significant association with diabetes. Specifically, former smokers had significantly lower odds of having diabetes compared to current smokers. This aligns with real-world findings that smoking is a modifiable risk factor for diabetes, and cessation may reduce risk over time.
+
+In contrast, blood pressure levels were not significantly related to diabetes in this analysis, although this might be due to the categorical simplification of blood pressure or the modest sample size.
+
+The logistic regression model suggests that, when adjusting for other factors, only smoking status (particularly being a former smoker) remained a significant predictor. This may reflect the influence of health-seeking behavior or lifestyle changes post-smoking cessation.
+
+# Conclusion
+This simulated analysis suggests that among the examined factors, smoking status—particularly being a former smoker—was most strongly associated with diabetes status. While age, BMI, and blood pressure are known to affect diabetes risk in real populations, they did not reach significance in this small, simulated dataset.
+
+These results highlight the importance of tobacco cessation in diabetes prevention efforts and emphasize the need for larger and more detailed datasets to robustly capture the multifactorial nature of diabetes risk.   
+
+---
+
+*This report is based on a previously conducted student-led experiment and compiled by **Ronak Fathi**, mentor and research supervisor. The dataset is simulated for instructional purposes.*
