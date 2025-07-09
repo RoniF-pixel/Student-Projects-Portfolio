@@ -36,7 +36,7 @@ The dataset `gratitude_wellbeing_data.csv` contains:
 ##  Key Results
 
 - **Happiness**: Gratitude group showed significantly greater improvement (_p_ = 0.008)
-- **Stress**: Gratitude group experienced a larger reduction in stress (_p_ = 0.045)
+- **Stress**: Gratitude group experienced a larger reduction in stress (_p_ = 0.019)
 
 ##  How to Run
 
