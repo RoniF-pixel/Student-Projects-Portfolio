@@ -76,6 +76,9 @@ data_miss$Happiness_Post[sample(1:nrow(data), 5)] <- NA
 imp <- mice(data_miss, m = 5, method = "pmm", seed = 500)
 summary(imp)
 
+#plot
+plot(imp)
+
 # Pool model
 completed_data <- complete(imp, 1)
 head(completed_data)
