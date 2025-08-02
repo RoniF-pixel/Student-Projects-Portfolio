@@ -68,7 +68,7 @@ t_test
 ```
 
 # Result
-Stress levels decreased more in the Gratitude group than the Neutral group (p = 0.045).
+Stress levels decreased more in the Gratitude group than the Neutral group (p = 0.01).
 
 # Handling Missing Data (Example)
 Let's assume some missing happiness scores and use multiple imputation.
