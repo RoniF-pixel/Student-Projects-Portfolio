@@ -85,23 +85,6 @@ ggplot(data_long, aes(x = Time, y = Happiness, color = Group, group = Group)) +
 
 
 
-# Comparison of Compliance 
-
-```{r}
-# Compare compliance between groups
-t.test(Compliance_14Day ~ Group, data = data_long)
-```
-
-```{r}
-library(ggplot2)
-
-ggplot(data_long, aes(x = Group, y = Compliance_14Day, fill = Group)) +
-  geom_boxplot() +
-  labs(title = "Compliance by Group", y = "Days Journaled (out of 14)") +
-  theme_minimal()
-```
-
-
 # Handling Missing Data (Example)
 Let's assume some missing happiness scores and use multiple imputation.
 
