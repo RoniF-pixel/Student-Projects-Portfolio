@@ -56,7 +56,7 @@ summary(lmer(Happiness ~ Group * Time + (1 | SubjectID), data = data_long))
 ```
 
 # Result
-A significant Time × Group interaction was found (p = 0.008), indicating steeper gains in happiness for the gratitude group.
+A significant Time × Group interaction was found (p = 0.0011), indicating steeper gains in happiness for the gratitude group.
 
 # Independent t-Test: Stress Reduction
 ```{r}
@@ -68,7 +68,22 @@ t_test
 ```
 
 # Result
-Stress levels decreased more in the Gratitude group than the Neutral group (p = 0.01).
+Stress levels decreased more in the Gratitude group than the Neutral group (p = 0.019).
+
+
+Before the intervention, both groups had similar happiness scores — but by the end, the Gratitude group jumped from an average of 4.4 to 5.7, while the Neutral group only rose to 5.0. 
+
+```{r}
+library(ggplot2)
+
+ggplot(data_long, aes(x = Time, y = Happiness, color = Group, group = Group)) +
+  stat_summary(fun = mean, geom = "line", size = 1.2) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  labs(title = "Change in Happiness Over Time by Group") +
+  theme_minimal()
+```
+
+
 
 # Handling Missing Data (Example)
 Let's assume some missing happiness scores and use multiple imputation.
