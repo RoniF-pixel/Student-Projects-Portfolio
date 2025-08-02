@@ -50,6 +50,11 @@ model <- lmer(Happiness ~ Time * Group + (1 | SubjectID), data = data_long)
 summary(model)
 ```
 
+```{r}
+library(lmerTest)
+summary(lmer(Happiness ~ Group * Time + (1 | SubjectID), data = data_long))
+```
+
 # Result
 A significant Time × Group interaction was found (p = 0.008), indicating steeper gains in happiness for the gratitude group.
 
@@ -75,9 +80,6 @@ data_miss$Happiness_Post[sample(1:nrow(data), 5)] <- NA
 
 imp <- mice(data_miss, m = 5, method = "pmm", seed = 500)
 summary(imp)
-
-#plot
-plot(imp)
 
 # Pool model
 completed_data <- complete(imp, 1)
