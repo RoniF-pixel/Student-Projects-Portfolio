@@ -15,6 +15,8 @@ As a statistician and data consultant, I have worked with students to help them 
     - **Learning & Academics** (e.g., GPA, study habits, online learning)
     - **Behavior & Lifestyle** (e.g., smartphone use, sleep, exercise)
     - **Social & Environmental Factors** (e.g., bullying, peer relations, family income)
+- *Economics*:
+- *Environment*:
 
 Each project is hosted in its own folder with:
 - A summary of the research purpose
