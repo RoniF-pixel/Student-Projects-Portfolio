@@ -13,7 +13,7 @@ Simulated dataset modeled on the structure of a real academic survey study
 ## 📊 Data Description
 **Source:** Simulated responses modeled after actual undergraduate research
 
-**Participants:** Undergraduate students from three universities (n ≈ 120)
+**Participants:** Undergraduate students from three universities (n ≈ 100)
 
 **Variables:**
 
