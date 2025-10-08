@@ -88,7 +88,7 @@ ggplot(data, aes(x = Practice_Minutes, y = Stress_Reduction)) +
 
 # Results Summary
 - **Stress levels** were significantly lower post-intervention (p < .001), supporting the effectiveness of mindfulness during finals.
-- **Correlation** between practice time and reduction in stress was **ρ = –.35, p = .04**, indicating a moderate negative relationship.
+- **Correlation** between practice time and reduction in stress was **ρ = 0.68, p = .00000**, indicating a moderate negative relationship.
 - **Effect size** (r) was calculated from the Wilcoxon test for reporting.
 
 # Conclusion
