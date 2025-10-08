@@ -57,7 +57,7 @@ output:
 
 ## Key Findings
 - Stress significantly reduced following the mindfulness intervention (**p < .001**).
-- More minutes of mindfulness practice were moderately correlated with greater stress reduction (**ρ = –.35, p = .04**).
+- More minutes of mindfulness practice were moderately correlated with greater stress reduction (**ρ = 0.68, p < 0.001**).
 - The effect size from the Wilcoxon test was also computed.
 
 ---
